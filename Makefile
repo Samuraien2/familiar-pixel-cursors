@@ -1,6 +1,9 @@
+PREFIX ?= /usr
+DESTDIR ?=
+
 familiar-pixel-cursors: all.png generate.sh
 	@./generate.sh
 
 install: familiar-pixel-cursors
-	@rm -rf /usr/share/icons/$<
-	@cp -rv $< /usr/share/icons/
+	install -d $(DESTDIR)$(PREFIX)/share/icons
+	cp -rv $< $(DESTDIR)$(PREFIX)/share/icons/
